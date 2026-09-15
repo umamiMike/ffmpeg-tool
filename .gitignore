@@ -1,0 +1,15 @@
+# cabal build output
+dist-newstyle/
+cabal.project.local
+cabal.project.local~
+.ghc.environment.*
+
+# GHC compiler artifacts (e.g. from `ghc` invoked directly, outside cabal)
+*.hi
+*.o
+
+# test suite scratch output (created/removed by test/Spec.hs, but ignore defensively)
+test/output/
+
+# macOS
+.DS_Store
