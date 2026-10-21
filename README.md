@@ -1,4 +1,4 @@
-# haskell-sandbox
+# ffmpeg-tool
 
 Personal Haskell learning sandbox. Cabal project, no Stack/Nix files inside
 the repo itself (GHC/cabal/ffmpeg are provided externally via nix

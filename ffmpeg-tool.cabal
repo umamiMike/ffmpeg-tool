@@ -11,7 +11,7 @@ cabal-version:      3.0
 --   http://haskell.org/cabal/users-guide/
 --
 -- The name of the package.
-name:               haskell-sandbox
+name:               ffmpeg-tool
 
 -- The package version.
 -- See the Haskell package versioning policy (PVP) for standards
@@ -67,7 +67,7 @@ executable ffmpego
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.20.2.0, typed-process, directory, haskell-sandbox
+    build-depends:    base ^>=4.20.2.0, typed-process, directory, ffmpeg-tool
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -81,14 +81,14 @@ test-suite ffmpeg-test
     type:             exitcode-stdio-1.0
     main-is:          Spec.hs
     hs-source-dirs:   test
-    build-depends:    base ^>=4.20.2.0, typed-process, directory, hspec, haskell-sandbox
+    build-depends:    base ^>=4.20.2.0, typed-process, directory, hspec, ffmpeg-tool
     default-language: Haskell2010
 
 library
     import:           warnings
     exposed-modules:  FFmpeg, Platform, Sox
     build-depends:    base ^>=4.20.2.0, typed-process, directory
-    hs-source-dirs:   ffmpeg
+    hs-source-dirs:   src
     default-language: Haskell2010
 
 executable rssi-timeline
