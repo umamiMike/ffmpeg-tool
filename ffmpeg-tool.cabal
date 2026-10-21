@@ -11,7 +11,7 @@ cabal-version:      3.0
 --   http://haskell.org/cabal/users-guide/
 --
 -- The name of the package.
-name:               haskell-sandbox
+name:               ffmpeg-tool
 
 -- The package version.
 -- See the Haskell package versioning policy (PVP) for standards
@@ -54,7 +54,7 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
-executable haskell
+executable ffmpego
     -- Import common warning flags.
     import:           warnings
 
@@ -62,13 +62,12 @@ executable haskell
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    other-modules: FFmpeg
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.20.2.0, typed-process
+    build-depends:    base ^>=4.20.2.0, typed-process, directory, ffmpeg-tool
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -81,9 +80,15 @@ test-suite ffmpeg-test
     import:           warnings
     type:             exitcode-stdio-1.0
     main-is:          Spec.hs
-    other-modules:    FFmpeg
-    hs-source-dirs:   test, app
-    build-depends:    base ^>=4.20.2.0, typed-process, directory, hspec
+    hs-source-dirs:   test
+    build-depends:    base ^>=4.20.2.0, typed-process, directory, hspec, ffmpeg-tool
+    default-language: Haskell2010
+
+library
+    import:           warnings
+    exposed-modules:  FFmpeg, Platform, Sox
+    build-depends:    base ^>=4.20.2.0, typed-process, directory
+    hs-source-dirs:   src
     default-language: Haskell2010
 
 executable rssi-timeline
